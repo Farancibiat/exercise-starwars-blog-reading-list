@@ -14,7 +14,7 @@ export const FavButton = () => {
         <>
             <Dropdown>
                 <Dropdown.Toggle variant="primary" id="dropdown-basic">
-                    Favorites <span class="badge badge-pill badge-secondary">{store.favorites.length}</span>
+                    Favorites <span className="badge rounded-pill bg-secondary">{store.favorites.length}</span>
   </Dropdown.Toggle>
 
                 <Dropdown.Menu>
