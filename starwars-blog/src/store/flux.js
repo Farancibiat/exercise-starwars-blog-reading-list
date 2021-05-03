@@ -2,11 +2,7 @@ const getState = ({ getStore, getActions, setStore }) => {
     return {
         store: {
             favorites: [],
-            characters: [],
-            countCharacters: 1,
-            countPlanets: 1,
-            countVehicles: 1,
-            
+            characters: [],            
             planets: [],
             planetsCheck: false,
             vehicles: []
@@ -14,8 +10,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         },
         actions: {
             loadCharacters: () => {
-                for (let i = 1; i <= 82; i++) {
-                    console.log(i);
+                for (let i = 1; i <= 10; i++) {
                     fetch(`https://www.swapi.tech/api/people/${i}`, {
                         method: "GET",
                         headers: { "Content-type": "application/json" }
@@ -24,7 +19,6 @@ const getState = ({ getStore, getActions, setStore }) => {
                         .then(data => {
                             if (!data.msg) {
                                 setStore({ characters: getStore().characters.concat(data.result.properties) });
-                                setStore({ countsCharacters: getStore().countsCharacters++ });
                             }
                         })
                         .catch(error => {
@@ -33,8 +27,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             loadVehicles: () => {
-                for (let i = 1; i <= 39; i++) {
-                    console.log(i);
+                for (let i = 1; i <= 10; i++) {
                     fetch(`https://www.swapi.tech/api/vehicles/${i}`, {
                         method: "GET",
                         headers: { "Content-type": "application/json" }
@@ -51,7 +44,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 }
             },
             loadPlanets: () => {
-                for (let i = 1; i <= 60; i++) {
+                for (let i = 1; i <= 10; i++) {
                     console.log(i);
                     fetch(`https://www.swapi.tech/api/planets/${i}`, {
                         method: "GET",

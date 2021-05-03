@@ -24,13 +24,40 @@ export const SWCard = (props) => {
                                 <div className="col-12 col-sm-6 pe-3">
                                     <LinkContainer to={`/character/${props.position}`}>
                                         <Button variant="outline-primary">Learn more!</Button>
-                                        </LinkContainer>
-                                        </div>
+                                    </LinkContainer>
+                                </div>
                                 <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
                             </div>
 
 
-                        </> : <div>chapalapachala</div>
+                        </> : props.type === "planets" ?
+                            <>
+                                <p className="card-text mb-0">Population: {props.data.population}</p>
+                                <p className="card-text">Terrain: {props.data.terrain}</p>
+
+                                <div className="row">
+                                    <div className="col-12 col-sm-6 pe-3">
+                                        <LinkContainer to={`/planet/${props.position}`}>
+                                            <Button variant="outline-primary">Learn more!</Button>
+                                        </LinkContainer>
+                                    </div>
+                                    <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
+                                </div>
+                            </>
+                            : props.type === "vehicles" ?
+                                <> <p className="card-text mb-0">Model: {props.data.model}</p>
+                                    <p className="card-text">Cargo Capacity: {props.data.cargo_capacity}</p>
+
+                                    <div className="row">
+                                        <div className="col-12 col-sm-6 pe-3">
+                                            <LinkContainer to={`/planet/${props.position}`}>
+                                                <Button variant="outline-primary">Learn more!</Button>
+                                            </LinkContainer>
+                                        </div>
+                                        <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
+                                    </div>
+                                </>
+                                : <div>Error loading blocks, mistaken type</div>
 
 
 
