@@ -7,7 +7,7 @@ import { LinkContainer } from "react-router-bootstrap";
 
 
 export const SWCard = (props) => {
-    const { store, actions } = useContext(Context);
+    const { actions } = useContext(Context);
     return (
         <>
             <Card className="me-4 ms-3 my-3 px-0" style={{ width: '18rem' }}>
@@ -26,7 +26,11 @@ export const SWCard = (props) => {
                                         <Button variant="outline-primary">Learn more!</Button>
                                     </LinkContainer>
                                 </div>
-                                <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
+                                <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse">
+                                    <Button variant="outline-warning" onClick={()=>actions.addFav("characters", props.position)}>
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </Button>
+                                </div>
                             </div>
 
 
@@ -37,30 +41,34 @@ export const SWCard = (props) => {
 
                                 <div className="row">
                                     <div className="col-12 col-sm-6 pe-3">
-                                        <LinkContainer to={`/planet/${props.position}`}>
+                                        <LinkContainer to={`/planets/${props.position}`}>
                                             <Button variant="outline-primary">Learn more!</Button>
                                         </LinkContainer>
                                     </div>
-                                    <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
+                                    <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse">
+                                        <Button variant="outline-warning" onClick={()=>actions.addFav("planets", props.position)}>
+                                            <FontAwesomeIcon icon={faHeart} />
+                                        </Button>
+                                    </div>
                                 </div>
-                            </>
-                            : props.type === "vehicles" ?
-                                <> <p className="card-text mb-0">Model: {props.data.model}</p>
+                            </>:
+                                <>
+                                    <p className="card-text mb-0">Model: {props.data.model}</p>
                                     <p className="card-text">Cargo Capacity: {props.data.cargo_capacity}</p>
 
                                     <div className="row">
                                         <div className="col-12 col-sm-6 pe-3">
-                                            <LinkContainer to={`/planet/${props.position}`}>
+                                            <LinkContainer to={`/vehicles/${props.position}`}>
                                                 <Button variant="outline-primary">Learn more!</Button>
                                             </LinkContainer>
                                         </div>
-                                        <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse"><Button variant="outline-warning"><FontAwesomeIcon icon={faHeart} /></Button></div>
+                                        <div className="col-12 col-sm-6 pe-3 d-flex flex-row-reverse">
+                                            <Button variant="outline-warning" onClick={()=>actions.addFav("vehicles", props.position)}>
+                                                <FontAwesomeIcon icon={faHeart} />
+                                            </Button>
+                                        </div>
                                     </div>
                                 </>
-                                : <div>Error loading blocks, mistaken type</div>
-
-
-
                     }
                 </Card.Body>
             </Card>

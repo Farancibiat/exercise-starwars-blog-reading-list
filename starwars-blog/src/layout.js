@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import injectContext from "./store/appContext";
 
+import "./styles/App.css";
 import { Home } from "./pages/home"
 import { NavigationBar } from "./component/navigationbar";
 import { Footer } from "./component/footer";
@@ -24,7 +25,7 @@ const Layout = () => {
                     <Route exact path="/">
                         <Home />
                     </Route>
-                    <Route exact path="/character/:uid">
+                    <Route exact path="/characters/:uid">
                         <Character id="uid" />
                     </Route>
                     <Route exact path="/vehicles/:uid">

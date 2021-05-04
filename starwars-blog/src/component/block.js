@@ -4,7 +4,7 @@ import { SWCard } from "./swcard"
 
 
 export const Block = (props) => {
-    const { store, actions } = useContext(Context);
+    const { store } = useContext(Context);
     return (
         <>
             <div className="container pt-3 ">

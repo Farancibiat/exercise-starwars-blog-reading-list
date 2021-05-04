@@ -12,4 +12,5 @@ import "bootstrap/dist/css/bootstrap.css";
 import Layout from "./layout";
 
 //render your react application
+
 ReactDOM.render(<Layout />, document.querySelector("#root"));
