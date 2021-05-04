@@ -26,11 +26,16 @@ const injectContext = PassedComponent => {
             //   This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
             //   you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
             //   store, instead use actions, like this:
-
-
+            // if (localStorage.getItem("characters") === null) {
                 state.actions.loadCharacters();
                 state.actions.loadVehicles();
                 state.actions.loadPlanets();
+            // }
+            // else{
+            //     state.actions.loadLocalStorage();
+            // }
+
+
         }, []);
         // the context will now have a getStore, getActions and setStore functions available, because they were declared
         // on the state of this component
